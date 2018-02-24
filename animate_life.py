@@ -23,11 +23,11 @@ print("First Generation")
 
 generation = 0
 ims=[]
-for i in xrange(generations):
+for i in range(generations):
         generation = generation + 1
         intermediateM = numpy.copy(M)
-        for ROWelem in xrange(1,ROWS+1):
-                for COLelem in xrange(1,COLS-1):
+        for ROWelem in range(1,ROWS+1):
+                for COLelem in range(1,COLS-1):
                         sum = ( M[ROWelem-1,COLelem-1]+M[ROWelem-1,COLelem]+M[ROWelem-1,COLelem+1]
                             +M[ROWelem,COLelem-1]+M[ROWelem,COLelem+1]
                             +M[ROWelem+1,COLelem-1]+M[ROWelem+1,COLelem]+M[ROWelem+1,COLelem+1] )
