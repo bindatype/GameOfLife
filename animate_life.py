@@ -1,14 +1,16 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from tqdm import tqdm
+
 
 fig = plt.figure()
 
 
-prob = 0.70
-COLS = 200
-ROWS = 98
-generations = 100
+prob = 0.7
+COLS = 400
+ROWS = 198
+generations = 600
 
 N=numpy.random.binomial(1,prob,size=(ROWS+2)*COLS)
 M=numpy.reshape(N,(ROWS+2,COLS))
@@ -23,7 +25,7 @@ print("First Generation")
 
 generation = 0
 ims=[]
-for i in range(generations):
+for i in tqdm(range(generations)):
         generation = generation + 1
         intermediateM = numpy.copy(M)
         for ROWelem in range(1,ROWS+1):
@@ -51,7 +53,7 @@ for i in range(generations):
                 break
 
 print("Present Generation = %d" %(generation))
-ani = animation.ArtistAnimation(fig, ims, interval=250, blit=True,repeat_delay=500)
-ani.save('game_of_life.mp4')
+ani = animation.ArtistAnimation(fig, ims, interval=25, blit=True,repeat_delay=500)
+ani.save('animate_life.mp4')
 
 plt.show()
