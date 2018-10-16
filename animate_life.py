@@ -54,6 +54,6 @@ for i in tqdm(range(generations)):
 
 print("Present Generation = %d" %(generation))
 ani = animation.ArtistAnimation(fig, ims, interval=25, blit=True,repeat_delay=500)
-ani.save('animate_life.mp4')
+#ani.save('animate_life.mp4')
 
 plt.show()
