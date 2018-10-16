@@ -10,7 +10,7 @@ fig = plt.figure()
 prob = 0.7
 COLS = 400
 ROWS = 198
-generations = 600
+generations = 200
 
 N=numpy.random.binomial(1,prob,size=(ROWS+2)*COLS)
 M=numpy.reshape(N,(ROWS+2,COLS))
