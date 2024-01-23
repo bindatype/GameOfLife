@@ -7,10 +7,10 @@ prob = float(sys.argv[1])
 COLS = int(sys.argv[2])
 ROWS = int(sys.argv[3])
 generations = int(sys.argv[4])
-#prob = 0.7
-#COLS = 200
-#ROWS = 198
-#generations = 100
+prob = 0.7
+COLS = 20
+ROWS = 19
+generations = 100
 
 N=numpy.random.binomial(1,prob,size=(ROWS+2)*COLS)
 M=numpy.reshape(N,(ROWS+2,COLS))
@@ -28,12 +28,12 @@ plt.imshow(initM, interpolation='nearest')
 plt.show()
 
 generation = 0
-for i in xrange(generations):
+for i in range(generations):
         generation = generation + 1
  #       print ("Generation = ",generation)
         intermediateM = numpy.copy(M)
-        for ROWelem in xrange(1,ROWS+1):
-                for COLelem in xrange(1,COLS-1):
+        for ROWelem in range(1,ROWS+1):
+                for COLelem in range(1,COLS-1):
                         sum = ( M[ROWelem-1,COLelem-1]+M[ROWelem-1,COLelem]+M[ROWelem-1,COLelem+1]
                             +M[ROWelem,COLelem-1]+M[ROWelem,COLelem+1]
                             +M[ROWelem+1,COLelem-1]+M[ROWelem+1,COLelem]+M[ROWelem+1,COLelem+1] )
@@ -51,10 +51,12 @@ for i in xrange(generations):
                                 else:
                                         intermediateM[ROWelem,COLelem] = 0
         M = numpy.copy(intermediateM)
+        plt.imshow(M, interpolation='nearest')
+        plt.show()
         if numpy.sum(M) == 0:
                 print("Extinction Occurs at generation = ",generation)
-                plt.imshow(M, interpolation='nearest')
-                plt.show()
+      #          plt.imshow(M, interpolation='nearest')
+      #          plt.show()
                 break
       #  print(" ")
       #  print M
